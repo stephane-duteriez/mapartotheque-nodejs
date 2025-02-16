@@ -1,4 +1,4 @@
-import { fetchAllByCollection, fetchById, postByCollection } from "@/firestore/db";
+import { deleteById, fetchAllByCollection, fetchById, postByCollection, updateById } from "@/firestore/db";
 import { Request, Response, Router } from 'express';
 
 const router = Router();
@@ -28,6 +28,25 @@ router.post("/", async function(req:Request, res:Response) {
 	}).catch((error) => {
 	  console.log(error)
 	  res.send(`error, ${JSON.stringify(error)}`)
+	});
+});
+
+router.put('/:id', function(req:Request, res:Response) {
+	const id = req.params.id;
+	const category = req.body;
+	updateById('categories', id, category).then((data) => {
+		res.json(data)
+	}).catch((error) => {
+		res.send(`error, ${JSON.stringify(error)}`)
+	});
+});
+
+router.delete('/:id', function(req:Request, res:Response) {
+	const id = req.params.id;
+	deleteById('categories', id).then((data) => {
+		res.json(data)
+	}).catch((error) => {
+		res.send(`error, ${JSON.stringify(error)}`)
 	});
 });
 
