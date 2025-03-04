@@ -1,0 +1,40 @@
+.search {
+	position: relative;
+	border-radius: 2px;
+	border-radius: 5px;
+	background-color: rgb(189, 210, 255);
+	margin-left: 0;
+	padding: 0.5em;
+	width: auto;
+	display: flex;
+	align-items: center;
+	&:hover {
+		background-color: rgb(255, 255, 255);
+	}
+}
+
+.searchIconWrapper {
+	padding: 0;
+	height: 100%;
+	position: absolute;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #e0e0e0;
+	flex-grow: 1;
+}
+
+.styledInputBase {
+	color: inherit;
+	flex-grow: 1;
+	
+	:global(.MuiInputBase-input) {
+		margin-left: 0.5em;
+		padding-left: calc(1em + 4px);
+		width: 12ch;
+		&:focus {
+			width: 20ch;
+		}
+	}
+}

@@ -1,10 +1,10 @@
-import { deleteById, fetchAllByCollection, fetchById, postByCollection, updateById } from "@/firestore/db";
+import { deleteById, fetchAll, fetchById, postByCollection, updateById } from "@/firestore/db";
 import { Request, Response, Router } from 'express';
 
 const router = Router();
 
 router.get('/', function(req:Request, res:Response) {
-	  fetchAllByCollection('categories').then((data) => {
+	  fetchAll('categories').then((data) => {
 		res.json(data)
 	  }).catch((error) => {
 		res.send(`error, ${JSON.stringify(error)}`)

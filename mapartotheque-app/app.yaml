@@ -7,6 +7,9 @@ automatic_scaling:
   min_pending_latency: automatic # default value
   max_pending_latency: 100ms
 
+env_variables:
+  GCLOUD_STORAGE_BUCKET: mapartotheque-js
+
 handlers:
   - url: /static/js/(.*)
     static_files: build/static/js/\1

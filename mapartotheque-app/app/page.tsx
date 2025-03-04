@@ -1,15 +1,20 @@
 
-import { fetchAllByCollection } from "@/firestore/db";
-import { Category } from "@/type";
+import { fetchAll } from "@/firestore/db";
+import { Category, Tune } from "@/type";
 
 const Home = async () => {
-	const categories = await fetchAllByCollection<Category>("categories");
+	const categories = await fetchAll<Category>("categories");
+	const tunes = await fetchAll<Tune>("tunes");
 	return (
 		<div>
 			<h1>Categories</h1>
-			<ul>
-				{categories.map((category) => <li key={category.id}>{category.name}</li>)}
-			</ul>
+			<div>
+				{categories.map((category) => <div key={category.id}>{category.name}</div>)}
+			</div>
+			<h1>Tunes</h1>
+			<div>
+				{tunes.map((tune) => <div key={tune.id}>{tune.name} <img src={tune.imageUrl} /></div>)}
+			</div>
 		</div>
 	);
 }
