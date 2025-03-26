@@ -26,8 +26,9 @@ export default function MyAppBar() {
 					<Typography
 						variant="h6"
 						noWrap
-						component="div"
+						component="a"
 						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+						href="/"
 					>
             Mapartotheque
 					</Typography>

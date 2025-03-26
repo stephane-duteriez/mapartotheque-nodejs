@@ -7,6 +7,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import MyAppBar from "@/component/MyAppBar";
 import { AppRouterCacheProvider} from "@mui/material-nextjs/v15-appRouter"
+import { Box, Container } from "@mui/material";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -41,7 +42,11 @@ const RootLayout = ({
 			>	
 				<AppRouterCacheProvider>
 					<MyAppBar />
-					{children}
+					<Container maxWidth="xl">
+						<Box sx={{ p: 2 }}>
+							{children}
+						</Box>
+					</Container>
 				</AppRouterCacheProvider>
 			</body>
 		</html>

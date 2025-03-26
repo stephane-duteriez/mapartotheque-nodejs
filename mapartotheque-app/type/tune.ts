@@ -9,4 +9,5 @@ export type Tune = {
 	lilyChords: string;
 	imageUrl: string;
 	pdfUrl: string;
+	author: string;
 }
